@@ -1,0 +1,18 @@
+research_task:
+  description: "Conduct comprehensive research on {topic}."
+  expected_output: "A summary of key advancements, challenges, and relevant studies in {topic}."
+  agent: researcher
+  tools: [SerperDevTool]
+  async_execution: true
+
+analysis_task:
+  description: "Analyze research findings to identify gaps."
+  expected_output: "A list of unresolved questions and opportunities in {topic}."
+  agent: analyst
+  context: [research_task]
+
+proposal_task:
+  description: "Write a research proposal for {topic}."
+  expected_output: "A 5-section proposal including objectives, methodology, and budget."
+  agent: proposal_writer
+  context: [analysis_task]
